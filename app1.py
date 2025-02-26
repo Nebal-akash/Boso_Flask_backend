@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import requests
 import os
 
-app1 = Flask(__name__)
+app = Flask(__name__)
 
 # Get Hugging Face API key from environment variable
 HF_API_KEY = os.getenv("HF_API_KEY")
@@ -31,4 +31,4 @@ def ask():
         return jsonify({"error": "Failed to get response", "details": response.text}), 500
 
 if __name__ == "__main__":
-    app1.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
